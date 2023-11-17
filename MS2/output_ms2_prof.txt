@@ -1,0 +1,180 @@
+Script started on Thu 22 Jun 2023 11:35:44 AM EDT
+==67450== Memcheck, a memory error detector
+==67450== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==67450== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==67450== Command: ms2 Stations1.txt Stations2.txt CustomerOrders.txt
+==67450== 
+[38;5;9mBegin Testing the Program!
+--------------------------[0m
+
+Command Line: ms2 Stations1.txt Stations2.txt CustomerOrders.txt
+
+========================================
+=         Stations (summary)           =
+========================================
+001 | Armchair       | 654321 | 
+002 | Bed            | 123456 | 
+003 | Dresser        | 056789 | 
+004 | Nighttable     | 000887 | 
+005 | Filing Cabinet | 987654 | 
+006 | Office Chair   | 147852 | 
+007 | Bookcase       | 000987 | 
+008 | Desk           | 459214 | 
+
+
+========================================
+=          Stations (full)             =
+========================================
+001 | Armchair       | 654321 |   10 | Upholstered Wing Chair
+002 | Bed            | 123456 |    5 | Queen size bed with headboard
+003 | Dresser        | 056789 |    7 | 6-Drawer Unit
+004 | Nighttable     | 000887 |    5 | Nightstand with 2 drawers
+005 | Filing Cabinet | 987654 |    5 | 3-drawer filing cabinet
+006 | Office Chair   | 147852 |   20 | High-back carpet-rollers
+007 | Bookcase       | 000987 |    5 | 5-shelf open bookcase
+008 | Desk           | 459214 |    2 | 6-foot worktable
+
+
+========================================
+=          Manual Validation           =
+========================================
+getItemName(): Armchair
+getNextSerialNumber(): 654321
+getNextSerialNumber(): 654322
+getQuantity(): 10
+getQuantity(): 9
+
+
+========================================
+=              Utilities               =
+========================================
+Data: [a]    Delimiter: [a]
+   ERROR: No token.
+Data: [a]    Delimiter: [b]
+   Token: [a] [1]
+Data: [Hello]    Delimiter: [l]
+   Token: [He] [2]
+   ERROR: No token.
+Data: [apple,orange,banana,kiwi,strawberry,yellow watermellon]    Delimiter: [,]
+   Token: [apple] [5]
+   Token: [orange] [6]
+   Token: [banana] [6]
+   Token: [kiwi] [6]
+   Token: [strawberry] [10]
+   Token: [yellow watermellon] [18]
+Data: [Gengar|Arcanine|Bulbasaur|Blaziken|C h a r i z a r d|Umbreon|Lucario|Eevee]    Delimiter: [|]
+   Token: [Gengar] [6]
+   Token: [Arcanine] [8]
+   Token: [Bulbasaur] [9]
+   Token: [Blaziken] [9]
+   Token: [C h a r i z a r d] [17]
+   Token: [Umbreon] [17]
+   Token: [Lucario] [17]
+   Token: [Eevee] [17]
+========================================
+=                Orders                =
+========================================
+Cornel B. - 1-Room Home Office
+[000000] Office Chair                   - TO BE FILLED
+[000000] Desk                           - TO BE FILLED
+[000000] Bookcase                       - TO BE FILLED
+[000000] Bookcase                       - TO BE FILLED
+[000000] Filing Cabinet                 - TO BE FILLED
+Chris S. - Bedroom
+[000000] Bed                            - TO BE FILLED
+[000000] Armchair                       - TO BE FILLED
+[000000] Nighttable                     - TO BE FILLED
+[000000] Dresser                        - TO BE FILLED
+[000000] Nighttable                     - TO BE FILLED
+John M. - Kids Bedroom
+[000000] Bed                            - TO BE FILLED
+[000000] Bed                            - TO BE FILLED
+[000000] Bed                            - TO BE FILLED
+[000000] Bed                            - TO BE FILLED
+[000000] Nighttable                     - TO BE FILLED
+[000000] Nighttable                     - TO BE FILLED
+[000000] Dresser                        - TO BE FILLED
+[000000] Desk                           - TO BE FILLED
+Hong H. - 1-Room Office
+[000000] Desk                           - TO BE FILLED
+[000000] Office Chair                   - TO BE FILLED
+[000000] Office Chair                   - TO BE FILLED
+[000000] Filing Cabinet                 - TO BE FILLED
+[000000] Filing Cabinet                 - TO BE FILLED
+[000000] Filing Cabinet                 - TO BE FILLED
+[000000] Bookcase                       - TO BE FILLED
+Rania A. - 2-Room Home Office and Bedroom
+[000000] Desk                           - TO BE FILLED
+[000000] Desk                           - TO BE FILLED
+[000000] Office Chair                   - TO BE FILLED
+[000000] Bed                            - TO BE FILLED
+[000000] Office Chair                   - TO BE FILLED
+[000000] Office Chair                   - TO BE FILLED
+[000000] Nighttable                     - TO BE FILLED
+[000000] Armchair                       - TO BE FILLED
+[000000] Dresser                        - TO BE FILLED
+
+
+========================================
+=          Manual Validation           =
+========================================
+CustomerOrders::display(): Rania A. - 2-Room Home Office and Bedroom
+[000000] Desk                           - TO BE FILLED
+[000000] Desk                           - TO BE FILLED
+[000000] Office Chair                   - TO BE FILLED
+[000000] Bed                            - TO BE FILLED
+[000000] Office Chair                   - TO BE FILLED
+[000000] Office Chair                   - TO BE FILLED
+[000000] Nighttable                     - TO BE FILLED
+[000000] Armchair                       - TO BE FILLED
+[000000] Dresser                        - TO BE FILLED
+
+CustomerOrders::CustomerOrders(&): ----> ERROR: Cannot make copies.
+
+CustomerOrders::CustomerOrders(&&): Rania A. - 2-Room Home Office and Bedroom
+[000000] Desk                           - TO BE FILLED
+[000000] Desk                           - TO BE FILLED
+[000000] Office Chair                   - TO BE FILLED
+[000000] Bed                            - TO BE FILLED
+[000000] Office Chair                   - TO BE FILLED
+[000000] Office Chair                   - TO BE FILLED
+[000000] Nighttable                     - TO BE FILLED
+[000000] Armchair                       - TO BE FILLED
+[000000] Dresser                        - TO BE FILLED
+
+CustomerOrders::CustomerOrders(string): Chloe - Flight PC
+[000000] CPU                            - TO BE FILLED
+[000000] GPU                            - TO BE FILLED
+[000000] Power Supply                   - TO BE FILLED
+
+CustomerOrders::operator=(&&): Hong H. - 1-Room Office
+[000000] Desk                           - TO BE FILLED
+[000000] Office Chair                   - TO BE FILLED
+[000000] Office Chair                   - TO BE FILLED
+[000000] Filing Cabinet                 - TO BE FILLED
+[000000] Filing Cabinet                 - TO BE FILLED
+[000000] Filing Cabinet                 - TO BE FILLED
+[000000] Bookcase                       - TO BE FILLED
+
+CustomerOrders::fillItem()
+isOrderFilled(): MISSING
+isItemFilled("CPU"): FILLED
+isOrderFilled(): MISSING
+    Filled Hong H., 1-Room Office [Filing Cabinet]
+    Filled Hong H., 1-Room Office [Office Chair]
+    Filled Hong H., 1-Room Office [Bookcase]
+    Filled Hong H., 1-Room Office [Desk]
+isOrderFilled(): MISSING
+
+[38;5;9m------------------------
+End Testing the Program![0m
+==67450== 
+==67450== HEAP SUMMARY:
+==67450==     in use at exit: 0 bytes in 0 blocks
+==67450==   total heap usage: 123 allocs, 123 frees, 106,381 bytes allocated
+==67450== 
+==67450== All heap blocks were freed -- no leaks are possible
+==67450== 
+==67450== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+Script done on Thu 22 Jun 2023 11:35:45 AM EDT
