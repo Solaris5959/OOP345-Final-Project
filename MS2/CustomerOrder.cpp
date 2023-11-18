@@ -14,7 +14,6 @@ namespace sdds {
         size_t next_pos = 0, posOfItems;
         bool more = true;
         m_name = trim(util.extractToken(str, next_pos, more));
-        //m_name = util.extractToken(str, next_pos, more);
         m_product = util.extractToken(str, next_pos, more);
         m_cntItem = 0;
         posOfItems = next_pos;
@@ -51,6 +50,12 @@ namespace sdds {
     // move assignment operator
     CustomerOrder& CustomerOrder::operator=(CustomerOrder&& src) noexcept {
         if (this != &src) {
+            if (this->m_lstItem != nullptr) {
+                for (size_t i = 0; i < m_cntItem; i++)
+                    delete m_lstItem[i];
+
+                delete[] m_lstItem;
+            }
             m_name = src.m_name;
             m_product = src.m_product;
             m_cntItem = src.m_cntItem;

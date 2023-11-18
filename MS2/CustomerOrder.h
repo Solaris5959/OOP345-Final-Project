@@ -16,7 +16,7 @@ namespace sdds {
         std::string m_name;
         std::string m_product;
         size_t m_cntItem;
-        Item** m_lstItem;
+        Item** m_lstItem = nullptr;
         static inline size_t m_widthField = 1;
       public:
         CustomerOrder();
